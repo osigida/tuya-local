@@ -1,0 +1,147 @@
+name: Dehumidifier
+products:
+  - id: zt87jwdngs1hsaqd
+    name: BigDry 9000 Professional
+primary_entity:
+  entity: humidifier
+  class: dehumidifier
+  dps:
+    - id: 1
+      name: switch
+      type: boolean
+      mapping:
+        - dps_val: false
+          icon: "mdi:air-humidifier-off"
+          icon_priority: 2
+        - dps_val: true
+          icon: "mdi:air-humidifier"
+          icon_priority: 4
+    - id: 2
+      name: Humidity
+      type: string
+      mapping:
+        - dps_val: 40
+          value: 40
+        - dps_val: 45
+          value: 45
+        - dps_val: 50
+          value: 50
+        - dps_val: 55
+          value: 55
+        - dps_val: 60
+          value: 60
+        - dps_val: 65
+          value: 65
+        - dps_val: 70
+          value: 70
+        - dps_val: 75
+          value: 75
+        - dps_val: 80
+          value: 80
+    - id: 5
+      name: mode
+      type: string
+      mapping:
+        - dps_val: dehumidify
+          value: Dehumidify
+        - dps_val: drying
+          value: Drying
+secondary_entities:
+  - entity: fan
+    dps:
+      - id: 4
+        name: Speed
+        type: string
+        icon: "mdi:fan"
+        mapping:
+          - dps_val: low
+            value: Low
+          - dps_val: high
+            value: High
+  - entity: sensor
+    name: Indoor Humidity
+    category: diagnostic
+    class: humidity
+    dps:
+      - id: 6
+        type: integer
+        name: sensor
+        unit: "%"
+        class: measurement
+  - entity: sensor
+    name: Indoor Temperature
+    category: diagnostic
+    class: temperature
+    dps:
+      - id: 7
+        type: integer
+        name: sensor
+        unit: C
+        class: measurement
+
+  - entity: switch
+    name: Anion
+    category: config
+    dps:
+      - id: 10
+        type: boolean
+        name: switch
+        mapping:
+          - dps_val: false
+            icon: "mdi:minus-circle-off-outline"
+          - dps_val: true
+            icon: "mdi:minus-circle-multiple-outline"
+
+  - entity: switch
+    name: Sleep
+    category: config
+    dps:
+      - id: 14
+        type: boolean
+        name: switch
+        mapping:
+          - dps_val: false
+            icon: "mdi:sleep-off"
+          - dps_val: true
+            icon: "mdi:sleep"
+
+  - entity: lock
+    name: Child lock
+    icon: "mdi:hand-back-right-off"
+    category: config
+    dps:
+      - id: 16
+        type: boolean
+        name: lock
+
+  - entity:
+    name: Status
+    class: enum
+    category: diagnostic
+    dps:
+      - id: 19
+        type: bitfield
+        name: sensor
+        # Docs mention E1 and E2, it isn't clear which is tank full, so for now
+        # treat both as that.
+        mapping:
+          - dps_val: 0
+            value: Normal
+            icon: "mdi:check-circle-outline"
+            icon_priority: 2
+          - dps_val: 1
+            value: E1
+            icon: "mdi:alert-circle-outline"
+            icon_priority: 2
+          - dps_val: 2
+            value: E2
+            icon: "mdi:alert-circle-outline"
+            icon_priority: 2
+          - dps_val: 4
+            value: Tank full
+            icon: "mdi:cup-water"
+            icon_priority: 2
+          - dps_val: 8
+            value: Defrosting
+            icon: "mdi:snowflake-melt"
+            icon_priority: 2

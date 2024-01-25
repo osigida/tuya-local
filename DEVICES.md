@@ -226,6 +226,7 @@
 - AlecoAir D16 purifying dehumidifier
 - AlecoAir D25 Traditio dehumidifier
 - Argo Dry Pury Evo WF dehumidifier
+- Cecotec BigDry 9000 Professional dehumidifier
 - Cleverio AD100 dehumidifier
 - Ebac DJ4000 dehumidifier
 - ElectriQ CD12PRO-LE dehumidifier
