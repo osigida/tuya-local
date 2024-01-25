@@ -62,6 +62,7 @@ secondary_entities:
     name: Indoor Humidity
     category: diagnostic
     class: humidity
+    readonly: true
     dps:
       - id: 6
         type: integer
@@ -72,6 +73,7 @@ secondary_entities:
     name: Indoor Temperature
     category: diagnostic
     class: temperature
+    readonly: true
     dps:
       - id: 7
         type: integer
@@ -122,6 +124,7 @@ secondary_entities:
       - id: 19
         type: bitfield
         name: sensor
+        readonly: true
         # Docs mention E1 and E2, it isn't clear which is tank full, so for now
         # treat both as that.
         mapping:
